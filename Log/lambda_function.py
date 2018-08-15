@@ -304,4 +304,4 @@ def parse_event_source(event, key):
     if "Records" in event and len(event["Records"]) > 0:
         if "s3" in event["Records"][0]:
             return "s3"
-return "aws"
+    return "aws"

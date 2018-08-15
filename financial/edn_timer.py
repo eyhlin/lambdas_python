@@ -53,7 +53,3 @@ def timer(uid, t, cxt):
         print (repr(uid)+'f: '+ repr(frequency[uid]))
     elif cxt == 'c':
         print (repr(uid)+'c: '+t)
-        
-        
-if __name__ == '__main__':
-    print('\n'.join(sorted(sys.path)))

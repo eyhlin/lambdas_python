@@ -21,7 +21,7 @@ from edn_timer import time
 
 # Parameters
 # ddApiKey: Datadog API Key
-ddApiKey = "<your_api_key>"
+ddApiKey = "KMS_ENCRYPTED_KEYS = 'AQICAHi7wMMzxQdsGmB1aYgGTdEAMynmCM+uVLtgnQzMjYntCwHJDU3zpKyhAu2A0YyLyh6GAAABATCB/gYJKoZIhvcNAQcGoIHwMIHtAgEAMIHnBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDGYOHzRFKWpV46ZDBwIBEICBuYJg4zMcXO8N59YBTnTXfI4SUBggVxl3oQdyaXJsPHrG18lV7ExN+VE6rsLEfO239Y8Zvf4PFVYdIVtC4osRcNbTUx5cjpjMSr5nOnAD8cbFcV75V2127IlWyE/lBG2Yne5cz23qZGfcCcyIiHzCFcDToNpsIMaX6dUV+fgMP2K/mUfXmBIvjaYvaW7AAqFgCxA+KuheATEs078si+44nqObivyaeyqUqqk/LqOITm0UpLF52c7QUM4W'"
 try:
     ENCRYPTED = os.environ['DD_KMS_API_KEY']
     ddApiKey = boto3.client('kms').decrypt(CiphertextBlob=b64decode(ENCRYPTED))['Plaintext']
@@ -305,4 +305,4 @@ def parse_event_source(event, key):
     if "Records" in event and len(event["Records"]) > 0:
         if "s3" in event["Records"][0]:
             return "s3"
-return "aws"
+    return "aws"
